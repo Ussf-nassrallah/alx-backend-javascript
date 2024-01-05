@@ -9,7 +9,7 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
     .then((res) => {
       for (const obj of res) {
         if (obj.status === 'rejected') {
-          obj.value = `Error: ${obj.reason.message}`;
+          obj.value = `${obj.reason}`;
           delete obj.reason;
         }
         // console.log(obj);
