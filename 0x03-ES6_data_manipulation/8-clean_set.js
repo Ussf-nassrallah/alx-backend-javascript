@@ -9,13 +9,13 @@
 const cleanSet = (set, startString) => {
   const result = [];
 
-  if (startString === '' || !startString || !set) {
+  if (!set || !startString || !(set instanceof Set) || typeof startString !== 'string') {
     return '';
   }
 
   for (const str of set.values()) {
     if (str.startsWith(startString)) {
-      result.push(str.substring(startString.length));
+      result.push(str.replace(startString, ''));
     }
   }
 
