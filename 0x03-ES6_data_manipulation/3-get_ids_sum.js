@@ -7,6 +7,10 @@
 export default function getStudentIdsSum(arr) {
   /* function: getStudentIdsSum */
   let sum = 0;
-  arr.map((student) => sum += student.id);
+
+  for (let idx = 0; idx < arr.length; idx += 1) {
+    sum += arr[idx].id;
+  }
+
   return sum;
 }
