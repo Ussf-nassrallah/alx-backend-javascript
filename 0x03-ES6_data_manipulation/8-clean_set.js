@@ -14,7 +14,7 @@ const cleanSet = (set, startString) => {
   }
 
   for (const str of set.values()) {
-    if (typeof value === 'string' && str.startsWith(startString)) {
+    if (str.startsWith(startString)) {
       result.push(str.replace(startString, ''));
     }
   }
