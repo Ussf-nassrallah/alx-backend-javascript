@@ -6,11 +6,10 @@
 
 export default function getStudentIdsSum(arr) {
   /* function: getStudentIdsSum */
-  let sum = 0;
-
-  for (let idx = 0; idx < arr.length; idx += 1) {
-    sum += arr[idx].id;
-  }
-
-  return sum;
+  /**
+   * @accumulator: holds the initialValue in the beginning
+   *  and then the last returned value of the function
+   */
+  const result = arr.reduce((accumulator, currentValue) => accumulator + currentValue.id, 0);
+  return result;
 }
