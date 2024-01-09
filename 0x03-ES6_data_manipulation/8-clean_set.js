@@ -9,11 +9,11 @@
 const cleanSet = (set, startString) => {
   const result = [];
 
-  if (startString === '') {
+  if (startString === '' || !startString || !set) {
     return '';
   }
 
-  for (const str of set) {
+  for (const str of set.values()) {
     if (str.includes(startString)) {
       result.push(str.replace(startString, ''));
     }
