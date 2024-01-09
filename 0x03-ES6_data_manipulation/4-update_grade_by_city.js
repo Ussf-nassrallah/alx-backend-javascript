@@ -11,16 +11,11 @@ export default function updateStudentGradeByCity(students, city, newGrades) {
   /* function: updateStudentGradeByCity */
   const studentsByCity = students.filter((student) => student.location === city);
 
-  for (let idx = 0; idx < studentsByCity.length; idx += 1) {
-    const student = studentsByCity[idx];
-    const gradeStudent = newGrades.find((gradeStudent) => gradeStudent.studentId === student.id);
-
-    if (gradeStudent) {
-      student.grade = gradeStudent.grade;
-    } else {
-      student.grade = 'N/A';
-    }
-  }
-
-  return studentsByCity;
+  return studentsByCity.map((s) => ({
+    id: s.id,
+    firstName: s.firstName,
+    location: s.location,
+    grade: (newGrades
+      .find((g) => g.studentId === s.id) !== undefined) ? newGrades.find((g) => g.studentId === s.id).grade : 'N/A',
+  }));
 }
