@@ -12,12 +12,18 @@ const getStudentsNames = (students) => {
 };
 
 const displayStudentsData = (students, fields) => {
-  console.log(`Number of students: ${students.length}`);
+  let output = `Number of students: ${students.length}\n`;
   for (let idx = 0; idx < fields.length; idx += 1) {
     const studentsList = filterStudents(students, fields[idx]);
     const studentsNames = getStudentsNames(studentsList);
-    console.log(`Number of students in ${fields[idx]}: ${studentsList.length}. List: ${studentsNames.join(', ')}`);
+
+    if (idx === fields.length - 1) {
+      output += `Number of students in ${fields[idx]}: ${studentsList.length}. List: ${studentsNames.join(', ')}`;
+    } else {
+      output += `Number of students in ${fields[idx]}: ${studentsList.length}. List: ${studentsNames.join(', ')}\n`;
+    }
   }
+  return output;
 };
 
 const countStudents = async (path) => {
@@ -39,7 +45,9 @@ const countStudents = async (path) => {
     }
 
     if (students.length !== 0) {
-      displayStudentsData(students, ['CS', 'SWE']);
+      output = displayStudentsData(students, ['CS', 'SWE']);
+      console.log(output);
+      return output;
     }
   } catch (error) {
     throw Error('Cannot load the database');
