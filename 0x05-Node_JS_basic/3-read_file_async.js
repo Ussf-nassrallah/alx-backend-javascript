@@ -33,6 +33,8 @@ const countStudents = async (path) => {
     const headers = rows[0].split(',');
     const students = [];
 
+    let responseText = '';
+
     for (let idx = 1; idx < rows.length; idx += 1) {
       const values = rows[idx].split(',');
       const student = {};
@@ -45,10 +47,11 @@ const countStudents = async (path) => {
     }
 
     if (students.length !== 0) {
-      output = displayStudentsData(students, ['CS', 'SWE']);
-      console.log(output);
-      return output;
+      responseText = displayStudentsData(students, ['CS', 'SWE']);
+      console.log(responseText);
     }
+
+    return responseText;
   } catch (error) {
     throw Error('Cannot load the database');
   }
