@@ -15,7 +15,7 @@ describe('calculateNumber', () => {
   });
 
   it('sum of a and b', () => {
-    assert.equal(calculateNumber(20, 20), 40);
+    assert.equal(calculateNumber(18.90, 20), 39);
     assert.equal(calculateNumber(1.9, 0.2), 2);
     assert.equal(calculateNumber(3.50, 2.9), 7);
   });
