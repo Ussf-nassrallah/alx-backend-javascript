@@ -17,8 +17,31 @@ describe('calculateNumber', () => {
     assert.strictEqual(result, 5); // 10 rounded / 2 rounded = 5
   });
 
-  it('should handle division by zero and return "Error"', function () {
-    const result = calculateNumber('DIVIDE', 8, 0);
-    assert.strictEqual(result, 'Error'); // Division by zero should return "Error"
+  it('positive number and 0', () => {
+    assert.strictEqual(calculateNumber('DIVIDE', 5.0, 0), 'Error');
+  });
+
+  it('positive number and number rounded down to 0', () => {
+    assert.strictEqual(calculateNumber('DIVIDE', 5.0, 0.2), 'Error');
+  });
+
+  it('positive number and number rounded up to 0', () => {
+    assert.strictEqual(calculateNumber('DIVIDE', 5.0, -0.2), 'Error');
+  });
+
+  it('negative number and 0', () => {
+    assert.strictEqual(calculateNumber('DIVIDE', -5.0, 0), 'Error');
+  });
+
+  it('negative number and number rounded down to zero', () => {
+    assert.strictEqual(calculateNumber('DIVIDE', -5.0, 0.2), 'Error');
+  });
+
+  it('negative number and number rounded up to zero', () => {
+    assert.strictEqual(calculateNumber('DIVIDE', -5.0, -0.2), 'Error');
+  });
+
+  it('0 and 0', () => {
+    assert.strictEqual(calculateNumber('DIVIDE', 0.0, 0.0), 'Error');
   });
 });
