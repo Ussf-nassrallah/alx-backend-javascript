@@ -3,46 +3,22 @@ const calculateNumber = require('./1-calcul');
 
 describe('calculateNumber', () => {
   describe('sum', () => {
-    it('should equal 4 when (a is 2) and (b is 2)', () => {
-      const expectedOutput = 4;
-      const output = calculateNumber('SUM', 2, 2);
-
-      assert.equal(output, expectedOutput);
+    it('round of a', () => {
+      assert.equal(calculateNumber('SUM', 15.78, 2), 18);
+      assert.equal(calculateNumber('SUM', 1.2, 0), 1);
+      assert.equal(calculateNumber('SUM', 3.5, 2), 6);
     });
 
-    it('should equal 4 when (a is 1) and (b is 3)', () => {
-      const expectedOutput = 4;
-      const output = calculateNumber('SUM', 1, 3);
-
-      assert.equal(output, expectedOutput);
+    it('round of b', () => {
+      assert.equal(calculateNumber('SUM', 2, 15.78), 18);
+      assert.equal(calculateNumber('SUM', 0, 1.2), 1);
+      assert.equal(calculateNumber('SUM', 2, 3.5), 6);
     });
 
-    it('should equal 5 when (a is 1) and (b is 3.7)', () => {
-      const expectedOutput = 5;
-      const output = calculateNumber('SUM', 1, 3.7);
-
-      assert.equal(output, expectedOutput);
-    });
-
-    it('should equal 5 when (a is 1.2) and (b is 3.7)', () => {
-      const expectedOutput = 5;
-      const output = calculateNumber('SUM', 1.2, 3.7);
-
-      assert.equal(output, expectedOutput);
-    });
-
-    it('should equal 6 when (a is 1.5) and (b is 3)', () => {
-      const expectedOutput = 6;
-      const output = calculateNumber('SUM', 1.5, 3.7);
-
-      assert.equal(output, expectedOutput);
-    });
-
-    it('should equal 6 when (a is 1.4) and (b is 4.5)', () => {
-      const expectedOutput = 6;
-      const output = calculateNumber('SUM', 1.4, 4.5);
-
-      assert.equal(output, expectedOutput);
+    it('sum of a and b', () => {
+      assert.equal(calculateNumber('SUM', 15.78, 2.5), 19);
+      assert.equal(calculateNumber('SUM', 1.2, 0.2), 1);
+      assert.equal(calculateNumber('SUM', 3.5, 2.7), 7);
     });
   });
 
