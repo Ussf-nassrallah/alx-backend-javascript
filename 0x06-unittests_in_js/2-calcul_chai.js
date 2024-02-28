@@ -15,6 +15,8 @@ const calculateNumber = (type, a, b) => {
     const result = (b === 0) ? 'Error' : Math.round(a) / Math.round(b);
     return result;
   }
+
+  return 0;
 };
 
 module.exports = calculateNumber;
