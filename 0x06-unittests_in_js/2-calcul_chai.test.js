@@ -76,5 +76,12 @@ describe('calculateNumber', () => {
 
       expect(output).to.eq(expectedOutput);
     });
+
+    it('should display an Erorr when (a is 1.4) and (b is 0.4)', () => {
+      const expectedOutput = 'Error';
+      const output = calculateNumber('DIVIDE', 1.4, 0.4);
+
+      expect(output).to.eq(expectedOutput);
+    });
   });
 });
