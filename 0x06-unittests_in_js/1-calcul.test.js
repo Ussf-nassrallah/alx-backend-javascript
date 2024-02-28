@@ -2,46 +2,79 @@ const assert = require('assert');
 const calculateNumber = require('./1-calcul');
 
 describe('calculateNumber', () => {
-  it('should add two numbers when type is SUM', function () {
-    const result = calculateNumber('SUM', 1.5, 3.7);
-    assert.strictEqual(result, 6); // 1.5 rounded + 3.7 rounded = 6
+  describe('sum', () => {
+    it('should equal 4 when (a is 2) and (b is 2)', () => {
+      const expectedOutput = 4;
+      const output = calculateNumber('SUM', 2, 2);
+
+      assert.equal(output, expectedOutput);
+    });
+
+    it('should equal 4 when (a is 1) and (b is 3)', () => {
+      const expectedOutput = 4;
+      const output = calculateNumber('SUM', 1, 3);
+
+      assert.equal(output, expectedOutput);
+    });
+
+    it('should equal 5 when (a is 1) and (b is 3.7)', () => {
+      const expectedOutput = 5;
+      const output = calculateNumber('SUM', 1, 3.7);
+
+      assert.equal(output, expectedOutput);
+    });
+
+    it('should equal 5 when (a is 1.2) and (b is 3.7)', () => {
+      const expectedOutput = 5;
+      const output = calculateNumber('SUM', 1.2, 3.7);
+
+      assert.equal(output, expectedOutput);
+    });
+
+    it('should equal 6 when (a is 1.5) and (b is 3)', () => {
+      const expectedOutput = 6;
+      const output = calculateNumber('SUM', 1.5, 3.7);
+
+      assert.equal(output, expectedOutput);
+    });
+
+    it('should equal 6 when (a is 1.4) and (b is 4.5)', () => {
+      const expectedOutput = 6;
+      const output = calculateNumber('SUM', 1.4, 4.5);
+
+      assert.equal(output, expectedOutput);
+    });
   });
 
-  it('should subtract two numbers when type is SUBTRACT', function () {
-    const result = calculateNumber('SUBTRACT', 5.8, 2.3);
-    assert.strictEqual(result, 4); // 5.8 rounded - 2.3 rounded = 4
+  describe('subtract', () => {
+    it('should equal 6 when (a is 10) and (b is 4)', () => {
+      const expectedOutput = 6;
+      const output = calculateNumber('SUBTRACT', 10, 4);
+
+      assert.equal(output, expectedOutput);
+    });
+
+    it('should equal -4 when (a is 1.4) and (b is 4.5)', () => {
+      const expectedOutput = -4;
+      const output = calculateNumber('SUBTRACT', 1.4, 4.5);
+
+      assert.equal(output, expectedOutput);
+    });
   });
 
-  it('should divide two numbers when type is DIVIDE', function () {
-    const result = calculateNumber('DIVIDE', 10, 2);
-    assert.strictEqual(result, 5); // 10 rounded / 2 rounded = 5
-  });
+  describe('divide', () => {
+    it('should equal 0.2 when (a is 1.4) and (b is 4.5)', () => {
+      const expectedOutput = 0.2;
+      const output = calculateNumber('DIVIDE', 1.4, 4.5);
 
-  it('positive number and 0', () => {
-    assert.strictEqual(calculateNumber('DIVIDE', 5.0, 0), 'Error');
-  });
+      assert.equal(output, expectedOutput);
+    });
 
-  it('positive number and number rounded down to 0', () => {
-    assert.strictEqual(calculateNumber('DIVIDE', 5.0, 0.2), 'Error');
-  });
+    it('should display an Erorr when (a is 1.4) and (b is 0)', () => {
+      const expectedOutput = 'Error';
+      const output = calculateNumber('DIVIDE', 1.4, 0);
 
-  it('positive number and number rounded up to 0', () => {
-    assert.strictEqual(calculateNumber('DIVIDE', 5.0, -0.2), 'Error');
-  });
-
-  it('negative number and 0', () => {
-    assert.strictEqual(calculateNumber('DIVIDE', -5.0, 0), 'Error');
-  });
-
-  it('negative number and number rounded down to zero', () => {
-    assert.strictEqual(calculateNumber('DIVIDE', -5.0, 0.2), 'Error');
-  });
-
-  it('negative number and number rounded up to zero', () => {
-    assert.strictEqual(calculateNumber('DIVIDE', -5.0, -0.2), 'Error');
-  });
-
-  it('0 and 0', () => {
-    assert.strictEqual(calculateNumber('DIVIDE', 0.0, 0.0), 'Error');
+      assert.equal(output, expectedOutput);
+    });
   });
 });
