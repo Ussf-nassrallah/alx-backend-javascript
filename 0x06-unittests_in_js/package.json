@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --experimental-modules"
+    "test": "mocha --require esm 3-payment.test.js"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
   "devDependencies": {
-    "mocha": "^10.3.0"
+    "chai": "^5.1.0",
+    "esm": "^3.2.25",
+    "mocha": "^10.3.0",
+    "sinon": "^17.0.1"
   }
 }
