@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --experimental-modules"
+    "test": "node ./node_modules/mocha/bin/mocha --require babel-register --exit"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-register": "^6.26.0",
     "chai": "^5.1.0",
     "mocha": "^10.3.0",
     "sinon": "^17.0.1"
