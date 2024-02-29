@@ -9,7 +9,7 @@ describe('sendPaymentRequestToApi', () => {
 
     sendPaymentRequestToApi(100, 2);
     expect(parent.calculateNumber.calledWith('SUM', 100, 20)).to.be.true;
-    expect(parent.calculateNumber.callCount).to.be.eq(1);
+    expect(parent.calculateNumber.callCount).to.be.equal(1);
 
     parent.calculateNumber.restore();
   });
